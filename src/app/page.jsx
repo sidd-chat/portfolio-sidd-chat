@@ -64,6 +64,12 @@ const ParticleBackground = () => {
 
 // Hero Section
 const HeroSection = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
 
@@ -118,6 +124,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(24, 111, 101, 0.3)" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection('featured-project')}
             className="bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 hover:shadow-lg transition-all duration-300"
           >
             View My Work
@@ -127,6 +134,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection('contact')}
             className="border-2 border-[#186F65] text-[#186F65] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#186F65] hover:text-white transition-all duration-300"
           >
             Get In Touch
@@ -140,9 +148,9 @@ const HeroSection = () => {
           className="flex justify-center gap-6 mt-12"
         >
           {[
-            { icon: Github, href: "#" },
-            { icon: Linkedin, href: "#" },
-            { icon: Mail, href: "#" },
+            { icon: Github, href: "https://github.com/sidd-chat" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/siddhartha-chatterjee-b31894b3/" },
+            { icon: Mail, href: "mailto:siddharthachatterjee04@gmail.com" },
           ].map((social, index) => (
             <motion.a
               key={index}
@@ -289,9 +297,11 @@ const AboutSection = () => {
 const FeaturedProject = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const projectImages = [
-    "/api/placeholder/600/400",
-    "/api/placeholder/600/400",
-    "/api/placeholder/600/400",
+    "/jj/Screenshot 2025-09-01 222043.png",
+    "/jj/Screenshot 2025-09-01 222058.png", 
+    "/jj/Screenshot 2025-09-01 222120.png",
+    "/jj/Screenshot 2025-09-01 222130.png",
+    "/jj/Screenshot 2025-09-01 222203.png"
   ];
 
   useEffect(() => {
@@ -302,7 +312,7 @@ const FeaturedProject = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-[#0a0a0a] relative">
+    <section id="featured-project" className="py-20 bg-[#0a0a0a] relative">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -337,19 +347,20 @@ const FeaturedProject = () => {
                   className="w-full h-80 object-cover"
                 />
               </AnimatePresence>
-              
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {projectImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImage(index)}
-                    className={twMerge(
-                      "w-3 h-3 rounded-full transition-all duration-300",
-                      currentImage === index ? "bg-[#186F65]" : "bg-gray-600"
-                    )}
-                  />
-                ))}
-              </div>
+            </div>
+            
+            {/* Image indicator dots moved below the card */}
+            <div className="flex justify-center gap-2 mt-4">
+              {projectImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={twMerge(
+                    "w-3 h-3 rounded-full transition-all duration-300",
+                    currentImage === index ? "bg-[#186F65]" : "bg-gray-600"
+                  )}
+                />
+              ))}
             </div>
           </motion.div>
 
@@ -410,22 +421,25 @@ const FeaturedProject = () => {
             </div>
 
             <div className="flex gap-4 pt-4">
-              <motion.button
+              <motion.a
+                href="https://www.jholajunction.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2"
+                className="bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 cursor-pointer"
               >
                 Live Demo
                 <ExternalLink size={16} />
-              </motion.button>
-              <motion.button
+              </motion.a>
+              {/* <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-[#186F65] text-[#186F65] px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#186F65] hover:text-white transition-all duration-300"
               >
                 View Code
                 <Github size={16} />
-              </motion.button>
+              </motion.button> */}
             </div>
           </motion.div>
         </div>
@@ -438,30 +452,34 @@ const FeaturedProject = () => {
 const OtherWork = () => {
   const projects = [
     {
-      title: "Task Manager Pro",
-      description: "A productivity app with real-time collaboration features",
-      tech: ["React", "Firebase", "Material-UI"],
-      image: "/api/placeholder/400/250",
+      title: "Minimal Jewelry Brand",
+      subtitle: "AURELIA",
+      description: "An elegant e-commerce platform showcasing minimalist jewelry designs with sophisticated user experience",
+      tech: ["React", "Stripe", "Framer Motion"],
+      video: "/jewelry-demo.mp4",
+      demoUrl: "https://post-bony-66192377.figma.site/",
     },
     {
-      title: "Weather Dashboard",
-      description: "Beautiful weather app with location-based forecasts",
-      tech: ["Vue.js", "OpenWeather API", "Chart.js"],
-      image: "/api/placeholder/400/250",
-    },
-    {
-      title: "Portfolio CMS",
-      description: "Content management system for creative professionals",
-      tech: ["Next.js", "Strapi", "PostgreSQL"],
-      image: "/api/placeholder/400/250",
-    },
-    {
-      title: "Crypto Tracker",
-      description: "Real-time cryptocurrency price monitoring tool",
-      tech: ["React Native", "CoinGecko API", "Redux"],
-      image: "/api/placeholder/400/250",
+      title: "Artsy Café",
+      subtitle: "BREW & BLOOM", 
+      description: "A vibrant café website featuring artistic ambiance, menu showcase, and seamless booking system",
+      tech: ["Next.js", "Sanity CMS", "Tailwind"],
+      video: "/cafe-demo.mp4",
+      demoUrl: "https://strong-clump-94022311.figma.site/",
     },
   ];
+
+  const handleVideoHover = (videoElement, shouldPlay) => {
+    if (videoElement) {
+      if (shouldPlay) {
+        videoElement.currentTime = 0;
+        videoElement.play().catch(console.error);
+      } else {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+      }
+    }
+  };
 
   return (
     <section className="py-20 bg-[#111] relative">
@@ -481,35 +499,49 @@ const OtherWork = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10, rotateX: 5 }}
+              whileHover={{ y: -10 }}
               className="bg-[#1a1a1a] rounded-2xl overflow-hidden border border-gray-800 hover:border-[#186F65] transition-all duration-300 group"
+              onMouseEnter={(e) => {
+                const video = e.currentTarget.querySelector('video');
+                handleVideoHover(video, true);
+              }}
+              onMouseLeave={(e) => {
+                const video = e.currentTarget.querySelector('video');
+                handleVideoHover(video, false);
+              }}
             >
               <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                <video
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={project.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                <h4 className="text-lg font-semibold text-[#186F65] mb-3">"{project.subtitle}"</h4>
                 <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-[#0a0a0a] text-[#B5CB99] rounded text-sm border border-gray-700"
+                      className="px-3 py-1 bg-[#0a0a0a] text-[#B5CB99] rounded-full text-sm border border-gray-700"
                     >
                       {tech}
                     </span>
@@ -517,14 +549,17 @@ const OtherWork = () => {
                 </div>
                 
                 <div className="flex gap-3">
-                  <motion.button
+                  <motion.a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="text-[#186F65] hover:text-[#B5CB99] transition-colors duration-300 flex items-center gap-1"
+                    className="text-[#186F65] hover:text-[#B5CB99] transition-colors duration-300 flex items-center gap-1 cursor-pointer"
                   >
                     <ExternalLink size={16} />
                     Demo
-                  </motion.button>
+                  </motion.a>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -640,7 +675,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-[#111] relative">
+    <section id="contact" className="py-20 bg-[#111] relative">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -669,7 +704,7 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <div className="space-y-4">
                 <motion.a
-                  href="mailto:siddhartha@example.com"
+                  href="mailto:siddharthachatterjee04@gmail.com"
                   whileHover={{ x: 10 }}
                   className="flex items-center gap-4 text-gray-300 hover:text-[#186F65] transition-colors duration-300"
                 >
@@ -678,12 +713,12 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-sm">siddhartha@example.com</div>
+                    <div className="text-sm">siddharthachatterjee04@gmail.com</div>
                   </div>
                 </motion.a>
 
                 <motion.a
-                  href="https://linkedin.com/in/siddhartha"
+                  href="https://www.linkedin.com/in/siddhartha-chatterjee-b31894b3/"
                   whileHover={{ x: 10 }}
                   className="flex items-center gap-4 text-gray-300 hover:text-[#186F65] transition-colors duration-300"
                 >
@@ -697,7 +732,7 @@ const ContactSection = () => {
                 </motion.a>
 
                 <motion.a
-                  href="https://github.com/siddhartha"
+                  href="https://github.com/sidd-chat"
                   whileHover={{ x: 10 }}
                   className="flex items-center gap-4 text-gray-300 hover:text-[#186F65] transition-colors duration-300"
                 >
