@@ -274,7 +274,7 @@ const AboutSection = () => {
             
             <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-gray-700">
               <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-[#186F65]">10+</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#186F65]">5+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Projects</div>
               </div>
               <div className="text-center">
@@ -607,7 +607,7 @@ const OtherWork = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Other <span className="text-[#186F65]">Work</span>
+            Concept <span className="text-[#186F65]">Projects</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             A collection of projects that showcase my versatility and passion for development
