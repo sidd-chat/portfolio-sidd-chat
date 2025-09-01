@@ -224,8 +224,8 @@ const AboutSection = () => {
                 key={skill.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
                 className="bg-[#1a1a1a] p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-[#186F65] transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -238,8 +238,8 @@ const AboutSection = () => {
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
                     className="bg-gradient-to-r from-[#186F65] to-[#B5CB99] h-2 rounded-full"
                   />
                 </div>
@@ -316,7 +316,8 @@ const FeaturedProject = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      // Consider tablets and mobile devices (up to 1024px) as non-hover devices
+      setIsMobile(window.innerWidth < 1024);
     };
     
     checkMobile();
@@ -383,7 +384,7 @@ const FeaturedProject = () => {
           >
             <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] border border-gray-800 w-full">
               <video
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                className="w-full h-full object-contain bg-black"
                 muted
                 loop
                 playsInline
@@ -402,33 +403,40 @@ const FeaturedProject = () => {
                 </div>
               )}
               
-              {/* Mobile play/pause button */}
+              {/* Mobile/Tablet play/pause button */}
               {isMobile && (
                 <button
                   onClick={(e) => {
                     const video = e.currentTarget.parentElement.querySelector('video');
                     handleMobileVideoToggle(video);
                   }}
-                  className="absolute inset-0 bg-black/20 flex items-center justify-center group"
+                  className="absolute bottom-3 right-3 bg-black/70 p-2 sm:p-3 rounded-full group-active:scale-95 transition-transform"
                 >
-                  <div className="bg-black/70 text-white p-4 rounded-full group-active:scale-95 transition-transform">
+                  <div className="text-white">
                     {isPlaying ? (
-                      <div className="w-6 h-6 flex items-center justify-center">
-                        <div className="w-1 h-4 bg-white mr-1"></div>
-                        <div className="w-1 h-4 bg-white"></div>
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
+                        <div className="w-0.5 h-3 sm:w-1 sm:h-4 bg-white mr-0.5 sm:mr-1"></div>
+                        <div className="w-0.5 h-3 sm:w-1 sm:h-4 bg-white"></div>
                       </div>
                     ) : (
-                      <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                      <div className="w-0 h-0 border-l-[8px] sm:border-l-[10px] border-l-white border-t-[6px] sm:border-t-[7px] border-t-transparent border-b-[6px] sm:border-b-[7px] border-b-transparent ml-0.5"></div>
                     )}
                   </div>
                 </button>
               )}
             </div>
             
-            {/* Hover instruction text for desktop */}
+            {/* Hover instruction text for desktop only */}
             {!isMobile && (
               <p className="text-center text-gray-400 text-sm mt-3">
                 Hover over the video to see it in action
+              </p>
+            )}
+            
+            {/* Touch instruction text for mobile/tablet */}
+            {isMobile && (
+              <p className="text-center text-gray-400 text-sm mt-3">
+                Tap the play button to see it in action
               </p>
             )}
             
@@ -540,7 +548,8 @@ const OtherWork = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      // Consider tablets and mobile devices (up to 1024px) as non-hover devices
+      setIsMobile(window.innerWidth < 1024);
     };
     
     checkMobile();
@@ -654,7 +663,7 @@ const OtherWork = () => {
                   </div>
                 )}
                 
-                {/* Mobile play/pause button */}
+                {/* Mobile/Tablet play/pause button */}
                 {isMobile && (
                   <button
                     onClick={(e) => {
@@ -662,16 +671,16 @@ const OtherWork = () => {
                       const video = e.currentTarget.parentElement.querySelector('video');
                       handleMobileVideoToggle(video, project.id);
                     }}
-                    className="absolute inset-0 bg-black/20 flex items-center justify-center group"
+                    className="absolute bottom-3 right-3 bg-black/70 p-2 sm:p-3 rounded-full group-active:scale-95 transition-transform"
                   >
-                    <div className="bg-black/70 text-white p-4 rounded-full group-active:scale-95 transition-transform">
+                    <div className="text-white">
                       {playingVideos[project.id] ? (
-                        <div className="w-6 h-6 flex items-center justify-center">
-                          <div className="w-1 h-4 bg-white mr-1"></div>
-                          <div className="w-1 h-4 bg-white"></div>
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
+                          <div className="w-0.5 h-3 sm:w-1 sm:h-4 bg-white mr-0.5 sm:mr-1"></div>
+                          <div className="w-0.5 h-3 sm:w-1 sm:h-4 bg-white"></div>
                         </div>
                       ) : (
-                        <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                        <div className="w-0 h-0 border-l-[8px] sm:border-l-[10px] border-l-white border-t-[6px] sm:border-t-[7px] border-t-transparent border-b-[6px] sm:border-b-[7px] border-b-transparent ml-0.5"></div>
                       )}
                     </div>
                   </button>
