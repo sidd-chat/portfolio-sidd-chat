@@ -79,7 +79,7 @@ const HeroSection = () => {
       
       <motion.div 
         style={{ y }}
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto w-full"
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -87,7 +87,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-6"
         >
-          <span className="text-[#B5CB99] text-lg font-medium tracking-wide">
+          <span className="text-[#B5CB99] text-base sm:text-lg font-medium tracking-wide">
             Hello, I'm
           </span>
         </motion.div>
@@ -96,7 +96,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 font-inter"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 font-inter leading-tight"
         >
           Siddhartha{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#186F65] to-[#B5CB99]">
@@ -108,7 +108,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed"
+          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
         >
           Full-Stack Developer crafting digital experiences that{' '}
           <span className="text-[#B5CB99] font-semibold">inspire</span> and{' '}
@@ -125,7 +125,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(24, 111, 101, 0.3)" }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection('featured-project')}
-            className="bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 hover:shadow-lg transition-all duration-300"
+            className="bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg flex items-center gap-2 hover:shadow-lg transition-all duration-300 w-full sm:w-auto justify-center"
           >
             View My Work
             <ArrowRight size={20} />
@@ -135,7 +135,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection('contact')}
-            className="border-2 border-[#186F65] text-[#186F65] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#186F65] hover:text-white transition-all duration-300"
+            className="border-2 border-[#186F65] text-[#186F65] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-[#186F65] hover:text-white transition-all duration-300 w-full sm:w-auto justify-center flex items-center"
           >
             Get In Touch
           </motion.button>
@@ -145,7 +145,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex justify-center gap-6 mt-12"
+          className="flex justify-center gap-4 sm:gap-6 mt-8 sm:mt-12"
         >
           {[
             { icon: Github, href: "https://github.com/sidd-chat" },
@@ -158,7 +158,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.2, y: -5 }}
               className="text-gray-400 hover:text-[#186F65] transition-colors duration-300"
             >
-              <social.icon size={24} />
+              <social.icon size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
           ))}
         </motion.div>
@@ -192,8 +192,8 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#111] relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-20 bg-[#111] relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -204,14 +204,14 @@ const AboutSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             About <span className="text-[#186F65]">Me</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             I'm a passionate full-stack developer with a keen eye for design and a love for creating 
             seamless digital experiences. With expertise spanning modern web technologies, I bring 
             ideas to life through clean code and intuitive interfaces.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -226,13 +226,13 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-[#186F65] transition-all duration-300"
+                className="bg-[#1a1a1a] p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-[#186F65] transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-2 bg-[#186F65] rounded-lg">
                     <skill.icon size={20} className="text-white" />
                   </div>
-                  <span className="text-white font-semibold">{skill.name}</span>
+                  <span className="text-white font-semibold text-sm sm:text-base">{skill.name}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <motion.div
@@ -253,10 +253,10 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800"
+            className="bg-[#1a1a1a] p-6 sm:p-8 rounded-2xl border border-gray-800"
           >
-            <h3 className="text-2xl font-bold text-white mb-6">My Journey</h3>
-            <div className="space-y-4 text-gray-300 leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">My Journey</h3>
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
               <p>
                 Started my journey in web development with a curiosity for how things work 
                 behind the scenes. What began as tinkering with HTML and CSS evolved into 
@@ -274,16 +274,16 @@ const AboutSection = () => {
             
             <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-gray-700">
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#186F65]">50+</div>
-                <div className="text-sm text-gray-400">Projects</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#186F65]">10+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Projects</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#B5CB99]">3+</div>
-                <div className="text-sm text-gray-400">Years</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#B5CB99]">2+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Years</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#186F65]">100%</div>
-                <div className="text-sm text-gray-400">Passion</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#186F65]">100%</div>
+                <div className="text-xs sm:text-sm text-gray-400">Passion</div>
               </div>
             </div>
           </motion.div>
@@ -295,25 +295,64 @@ const AboutSection = () => {
 
 // Featured Project Section
 const FeaturedProject = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const projectImages = [
-    "/jj/Screenshot 2025-09-01 222043.png",
-    "/jj/Screenshot 2025-09-01 222058.png", 
-    "/jj/Screenshot 2025-09-01 222120.png",
-    "/jj/Screenshot 2025-09-01 222130.png",
-    "/jj/Screenshot 2025-09-01 222203.png"
-  ];
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // const [currentImage, setCurrentImage] = useState(0);
+  // const projectImages = [
+  //   "/jj/Screenshot 2025-09-01 222043.png",
+  //   "/jj/Screenshot 2025-09-01 222058.png", 
+  //   "/jj/Screenshot 2025-09-01 222120.png",
+  //   "/jj/Screenshot 2025-09-01 222130.png",
+  //   "/jj/Screenshot 2025-09-01 222203.png"
+  // ];
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImage((prev) => (prev + 1) % projectImages.length);
+  //   }, 4000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % projectImages.length);
-    }, 4000);
-    return () => clearInterval(interval);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  const handleVideoHover = (videoElement, shouldPlay) => {
+    if (videoElement && !isMobile) {
+      if (shouldPlay) {
+        videoElement.currentTime = 0;
+        videoElement.play().catch(console.error);
+      } else {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+      }
+    }
+  };
+
+  const handleMobileVideoToggle = (videoElement) => {
+    if (videoElement) {
+      if (isPlaying) {
+        videoElement.pause();
+        setIsPlaying(false);
+      } else {
+        videoElement.currentTime = 0;
+        videoElement.play().catch(console.error);
+        setIsPlaying(true);
+      }
+    }
+  };
+
   return (
-    <section id="featured-project" className="py-20 bg-[#0a0a0a] relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="featured-project" className="py-20 bg-[#0a0a0a] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -326,31 +365,75 @@ const FeaturedProject = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative w-full"
+            onMouseEnter={(e) => {
+              const video = e.currentTarget.querySelector('video');
+              handleVideoHover(video, true);
+            }}
+            onMouseLeave={(e) => {
+              const video = e.currentTarget.querySelector('video');
+              handleVideoHover(video, false);
+            }}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] border border-gray-800">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImage}
-                  src={projectImages[currentImage]}
-                  alt="Jhola Junction"
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-full h-80 object-cover"
-                />
-              </AnimatePresence>
+            <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] border border-gray-800 w-full">
+              <video
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source src="/jj.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Hover indicator for desktop */}
+              {!isMobile && (
+                <div className="absolute inset-0 bg-black/20 opacity-100 hover:opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
+                    Hover to play video
+                  </div>
+                </div>
+              )}
+              
+              {/* Mobile play/pause button */}
+              {isMobile && (
+                <button
+                  onClick={(e) => {
+                    const video = e.currentTarget.parentElement.querySelector('video');
+                    handleMobileVideoToggle(video);
+                  }}
+                  className="absolute inset-0 bg-black/20 flex items-center justify-center group"
+                >
+                  <div className="bg-black/70 text-white p-4 rounded-full group-active:scale-95 transition-transform">
+                    {isPlaying ? (
+                      <div className="w-6 h-6 flex items-center justify-center">
+                        <div className="w-1 h-4 bg-white mr-1"></div>
+                        <div className="w-1 h-4 bg-white"></div>
+                      </div>
+                    ) : (
+                      <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                    )}
+                  </div>
+                </button>
+              )}
             </div>
             
-            {/* Image indicator dots moved below the card */}
-            <div className="flex justify-center gap-2 mt-4">
+            {/* Hover instruction text for desktop */}
+            {!isMobile && (
+              <p className="text-center text-gray-400 text-sm mt-3">
+                Hover over the video to see it in action
+              </p>
+            )}
+            
+            {/* Image indicator dots commented out */}
+            {/* <div className="flex justify-center gap-2 mt-4">
               {projectImages.map((_, index) => (
                 <button
                   key={index}
@@ -361,7 +444,7 @@ const FeaturedProject = () => {
                   )}
                 />
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
@@ -374,14 +457,12 @@ const FeaturedProject = () => {
             <div>
               <h3 className="text-3xl font-bold text-white mb-4">Jhola Junction</h3>
               <p className="text-xl text-[#B5CB99] mb-6">
-                E-commerce Platform for Local Artisans
+                E-commerce Platform for Jhola Bags and Pouches
               </p>
             </div>
 
             <p className="text-gray-300 leading-relaxed">
-              A comprehensive e-commerce platform designed to connect local artisans with customers 
-              worldwide. Built with modern technologies to ensure scalability, performance, and 
-              exceptional user experience across all devices.
+              A bold, Gen-Z focused e-commerce platform for tote bags and accessories. I built it end-to-end with a clean, colorful UI, Supabase backend, secure Razorpay payments, and Shiprocket integration for order management and logistics. It includes real-time cart & wishlist, responsive design, and custom admin dashboard—showcasing my ability to deliver a full-stack, production-ready brand experience.
             </p>
 
             <div className="space-y-4">
@@ -393,7 +474,11 @@ const FeaturedProject = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Star size={16} className="text-[#186F65]" />
-                  Secure payment integration
+                  Secure Razorpay payment integration
+                </li>
+                <li className="flex items-center gap-2">
+                  <Star size={16} className="text-[#186F65]" />
+                  Shiprocket logistics integration
                 </li>
                 <li className="flex items-center gap-2">
                   <Star size={16} className="text-[#186F65]" />
@@ -409,7 +494,7 @@ const FeaturedProject = () => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-white">Tech Stack:</h4>
               <div className="flex flex-wrap gap-2">
-                {["React", "Node.js", "MongoDB", "Express", "Tailwind CSS", "Stripe"].map((tech) => (
+                {["React", "Next.js", "Supabase", "Tailwind CSS", "Shiprocket", "Razorpay"].map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1 bg-[#1a1a1a] border border-[#186F65] text-[#B5CB99] rounded-full text-sm"
@@ -450,27 +535,43 @@ const FeaturedProject = () => {
 
 // Other Work Section
 const OtherWork = () => {
+  const [playingVideos, setPlayingVideos] = useState({});
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const projects = [
     {
+      id: 'jewelry',
       title: "Minimal Jewelry Brand",
       subtitle: "AURELIA",
       description: "An elegant e-commerce platform showcasing minimalist jewelry designs with sophisticated user experience",
-      tech: ["React", "Stripe", "Framer Motion"],
+      tech: ["Figma Mockup"],
       video: "/jewelry-demo.mp4",
       demoUrl: "https://post-bony-66192377.figma.site/",
     },
     {
+      id: 'cafe',
       title: "Artsy Café",
       subtitle: "BREW & BLOOM", 
       description: "A vibrant café website featuring artistic ambiance, menu showcase, and seamless booking system",
-      tech: ["Next.js", "Sanity CMS", "Tailwind"],
+      tech: ["Figma Mockup"],
       video: "/cafe-demo.mp4",
       demoUrl: "https://strong-clump-94022311.figma.site/",
     },
   ];
 
   const handleVideoHover = (videoElement, shouldPlay) => {
-    if (videoElement) {
+    if (videoElement && !isMobile) {
       if (shouldPlay) {
         videoElement.currentTime = 0;
         videoElement.play().catch(console.error);
@@ -481,9 +582,23 @@ const OtherWork = () => {
     }
   };
 
+  const handleMobileVideoToggle = (videoElement, projectId) => {
+    if (videoElement) {
+      const isPlaying = playingVideos[projectId];
+      if (isPlaying) {
+        videoElement.pause();
+        setPlayingVideos(prev => ({ ...prev, [projectId]: false }));
+      } else {
+        videoElement.currentTime = 0;
+        videoElement.play().catch(console.error);
+        setPlayingVideos(prev => ({ ...prev, [projectId]: true }));
+      }
+    }
+  };
+
   return (
-    <section className="py-20 bg-[#111] relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-20 bg-[#111] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -499,7 +614,7 @@ const OtherWork = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -508,7 +623,7 @@ const OtherWork = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className="bg-[#1a1a1a] rounded-2xl overflow-hidden border border-gray-800 hover:border-[#186F65] transition-all duration-300 group"
+              className="bg-[#1a1a1a] rounded-2xl overflow-hidden border border-gray-800 hover:border-[#186F65] transition-all duration-300 group w-full"
               onMouseEnter={(e) => {
                 const video = e.currentTarget.querySelector('video');
                 handleVideoHover(video, true);
@@ -520,7 +635,7 @@ const OtherWork = () => {
             >
               <div className="relative overflow-hidden">
                 <video
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                   muted
                   loop
                   playsInline
@@ -529,19 +644,50 @@ const OtherWork = () => {
                   <source src={project.video} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Desktop hover overlay */}
+                {!isMobile && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
+                      Hover to play
+                    </div>
+                  </div>
+                )}
+                
+                {/* Mobile play/pause button */}
+                {isMobile && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const video = e.currentTarget.parentElement.querySelector('video');
+                      handleMobileVideoToggle(video, project.id);
+                    }}
+                    className="absolute inset-0 bg-black/20 flex items-center justify-center group"
+                  >
+                    <div className="bg-black/70 text-white p-4 rounded-full group-active:scale-95 transition-transform">
+                      {playingVideos[project.id] ? (
+                        <div className="w-6 h-6 flex items-center justify-center">
+                          <div className="w-1 h-4 bg-white mr-1"></div>
+                          <div className="w-1 h-4 bg-white"></div>
+                        </div>
+                      ) : (
+                        <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                      )}
+                    </div>
+                  </button>
+                )}
               </div>
               
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                <h4 className="text-lg font-semibold text-[#186F65] mb-3">"{project.subtitle}"</h4>
-                <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{project.title}</h3>
+                <h4 className="text-base sm:text-lg font-semibold text-[#186F65] mb-3">"{project.subtitle}"</h4>
+                <p className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-[#0a0a0a] text-[#B5CB99] rounded-full text-sm border border-gray-700"
+                      className="px-3 py-1 bg-[#0a0a0a] text-[#B5CB99] rounded-full text-xs sm:text-sm border border-gray-700"
                     >
                       {tech}
                     </span>
@@ -555,19 +701,19 @@ const OtherWork = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="text-[#186F65] hover:text-[#B5CB99] transition-colors duration-300 flex items-center gap-1 cursor-pointer"
+                    className="text-[#186F65] hover:text-[#B5CB99] transition-colors duration-300 flex items-center gap-1 cursor-pointer text-sm sm:text-base"
                   >
                     <ExternalLink size={16} />
                     Demo
                   </motion.a>
-                  <motion.button
+                  {/* <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="text-[#186F65] hover:text-[#B5CB99] transition-colors duration-300 flex items-center gap-1"
                   >
                     <Github size={16} />
                     Code
-                  </motion.button>
+                  </motion.button> */}
                 </div>
               </div>
             </motion.div>
@@ -582,28 +728,16 @@ const OtherWork = () => {
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Product Manager at TechCorp",
-      content: "Siddhartha delivered exceptional work on our e-commerce platform. His attention to detail and technical expertise made the project a huge success.",
-      avatar: "/api/placeholder/60/60",
-    },
-    {
-      name: "Michael Chen",
-      role: "Startup Founder",
-      content: "Working with Siddhartha was a game-changer for our startup. He transformed our vision into a beautiful, functional web application.",
-      avatar: "/api/placeholder/60/60",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Design Director",
-      content: "Rare to find a developer who understands both technical implementation and user experience as well as Siddhartha does.",
-      avatar: "/api/placeholder/60/60",
+      name: "Diya Shaw",
+      role: "Founder at Jhola Junction",
+      content: "Working with Siddhartha Chatterjee on the Jhola Junction website was such a wonderful experience. He really understood the vibe I wanted for the brand and brought it to life in the most creative way. The site feels fresh, easy to navigate, and truly represents what Jhola Junction stands for. Siddhartha was patient, open to ideas, and quick to make things happen — which made the whole process stress-free for me. I'm so grateful for his effort and creativity, and I couldn't be happier with the result.",
+      avatar: "/diya.jpeg",
     },
   ];
 
   return (
-    <section className="py-20 bg-[#0a0a0a] relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-20 bg-[#0a0a0a] relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -616,37 +750,39 @@ const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-[#186F65] transition-all duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-[#B5CB99] fill-current" />
-                ))}
-              </div>
-              
-              <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
-              
-              <div className="flex items-center gap-3">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <div className="text-white font-semibold">{testimonial.name}</div>
-                  <div className="text-[#B5CB99] text-sm">{testimonial.role}</div>
+        <div className="flex justify-center">
+          <div className="max-w-2xl">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-[#1a1a1a] p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-[#186F65] transition-all duration-300"
+              >
+                <div className="flex items-center gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="sm:w-5 sm:h-5 text-[#B5CB99] fill-current" />
+                  ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                
+                <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg italic">"{testimonial.content}"</p>
+                
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="text-white font-semibold text-base sm:text-lg">{testimonial.name}</div>
+                    <div className="text-[#B5CB99] text-sm sm:text-base">{testimonial.role}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -675,8 +811,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#111] relative">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="contact" className="py-20 bg-[#111] relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -687,21 +823,21 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Let's <span className="text-[#186F65]">Connect</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how we can bring your ideas to life.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <div className="space-y-4">
                 <motion.a
                   href="mailto:siddharthachatterjee04@gmail.com"
@@ -709,11 +845,11 @@ const ContactSection = () => {
                   className="flex items-center gap-4 text-gray-300 hover:text-[#186F65] transition-colors duration-300"
                 >
                   <div className="p-3 bg-[#1a1a1a] rounded-lg border border-gray-800">
-                    <Mail size={20} />
+                    <Mail size={18} className="sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold">Email</div>
-                    <div className="text-sm">siddharthachatterjee04@gmail.com</div>
+                    <div className="font-semibold text-sm sm:text-base">Email</div>
+                    <div className="text-xs sm:text-sm break-all">siddharthachatterjee04@gmail.com</div>
                   </div>
                 </motion.a>
 
@@ -723,11 +859,11 @@ const ContactSection = () => {
                   className="flex items-center gap-4 text-gray-300 hover:text-[#186F65] transition-colors duration-300"
                 >
                   <div className="p-3 bg-[#1a1a1a] rounded-lg border border-gray-800">
-                    <Linkedin size={20} />
+                    <Linkedin size={18} className="sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold">LinkedIn</div>
-                    <div className="text-sm">Connect with me</div>
+                    <div className="font-semibold text-sm sm:text-base">LinkedIn</div>
+                    <div className="text-xs sm:text-sm">Connect with me</div>
                   </div>
                 </motion.a>
 
@@ -737,11 +873,11 @@ const ContactSection = () => {
                   className="flex items-center gap-4 text-gray-300 hover:text-[#186F65] transition-colors duration-300"
                 >
                   <div className="p-3 bg-[#1a1a1a] rounded-lg border border-gray-800">
-                    <Github size={20} />
+                    <Github size={18} className="sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold">GitHub</div>
-                    <div className="text-sm">Check out my code</div>
+                    <div className="font-semibold text-sm sm:text-base">GitHub</div>
+                    <div className="text-xs sm:text-sm">Check out my code</div>
                   </div>
                 </motion.a>
               </div>
@@ -756,7 +892,7 @@ const ContactSection = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-white font-semibold mb-2">
+                <label htmlFor="name" className="block text-white font-semibold mb-2 text-sm sm:text-base">
                   Name
                 </label>
                 <input
@@ -766,13 +902,13 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#186F65] focus:outline-none transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#186F65] focus:outline-none transition-colors duration-300 text-sm sm:text-base"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-white font-semibold mb-2">
+                <label htmlFor="email" className="block text-white font-semibold mb-2 text-sm sm:text-base">
                   Email
                 </label>
                 <input
@@ -782,13 +918,13 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#186F65] focus:outline-none transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#186F65] focus:outline-none transition-colors duration-300 text-sm sm:text-base"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-white font-semibold mb-2">
+                <label htmlFor="message" className="block text-white font-semibold mb-2 text-sm sm:text-base">
                   Message
                 </label>
                 <textarea
@@ -798,7 +934,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#186F65] focus:outline-none transition-colors duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#186F65] focus:outline-none transition-colors duration-300 resize-none text-sm sm:text-base"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -807,10 +943,10 @@ const ContactSection = () => {
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
+                className="w-full bg-gradient-to-r from-[#186F65] to-[#B5CB99] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300 text-sm sm:text-base"
               >
                 Send Message
-                <Send size={18} />
+                <Send size={16} className="sm:w-5 sm:h-5" />
               </motion.button>
             </form>
           </motion.div>
@@ -823,7 +959,7 @@ const ContactSection = () => {
 // Main Portfolio Component
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-inter">
+    <div className="min-h-screen bg-[#0a0a0a] font-inter overflow-x-hidden">
       <HeroSection />
       <AboutSection />
       <FeaturedProject />
@@ -833,8 +969,8 @@ export default function Portfolio() {
       
       {/* Footer */}
       <footer className="py-8 bg-[#0a0a0a] border-t border-gray-800">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-gray-400">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-gray-400 text-sm sm:text-base">
             © 2025 Siddhartha Chatterjee. Crafted with passion and precision.
           </p>
         </div>
@@ -849,10 +985,16 @@ export default function Portfolio() {
         
         html {
           scroll-behavior: smooth;
+          overflow-x: hidden;
         }
         
         body {
           font-family: 'Inter', sans-serif;
+          overflow-x: hidden;
+        }
+        
+        * {
+          box-sizing: border-box;
         }
       `}</style>
     </div>
